@@ -5,14 +5,10 @@ const PokemonList = ({pokemons}) => {
   return (
     <div id="PokemonList">
       <section className="PokemonCard-Container">
-        {pokemons.map((pokemon) => {return <PokemonCard />})}
+        {pokemons.map((pokemon) => {return <PokemonCard name={pokemon.name} url={pokemon.url} />})}
       </section>
     </div>
   )
-}
-
-PokemonList.defaultProps = {
-  pokemons: Array(10).fill(''),
 }
 
 export {PokemonList} 

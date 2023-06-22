@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage'
 import { ErrorPage } from './pages/ErrorPage'
 
 function App() {
+
   return (
     <Router>
       <Routes>

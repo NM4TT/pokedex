@@ -3,12 +3,12 @@ import { PokemonImage } from "../PokemonImage";
 import Meta from "antd/es/card/Meta";
 import { AiOutlineStar } from 'react-icons/ai'
 
-const PokemonCard = () => {
+const PokemonCard = ({name,url}) => {
   return (
     <Card
       className="PokemonCard"
-      title="Ditto"
-      cover={<PokemonImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="Ditto" />}
+      title={name}
+      cover={<PokemonImage src={url} alt={name} />}
       extra={<AiOutlineStar />}
     >
       <Meta description="fire, magic" />

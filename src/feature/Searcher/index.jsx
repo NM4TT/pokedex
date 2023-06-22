@@ -3,7 +3,7 @@ import React from 'react'
 import { InputSearch } from './components/InputSearch'
 import { PokemonList } from "./components/PokemonList";
 
-const Searcher = () => {
+const Searcher = ({pokemons}) => {
   return (
     <div id="Pokedex-Searcher">
         
@@ -12,7 +12,7 @@ const Searcher = () => {
         </section>
 
         <section className="PokemonList-Container">
-          <PokemonList />
+          <PokemonList pokemons={pokemons}/>
         </section>
 
     </div>
