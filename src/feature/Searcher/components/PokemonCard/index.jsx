@@ -3,7 +3,8 @@ import { PokemonImage } from "../PokemonImage";
 import Meta from "antd/es/card/Meta";
 import { AiOutlineStar } from 'react-icons/ai'
 
-const PokemonCard = ({name,url}) => {
+const PokemonCard = ({name,url, types}) => {
+  console.log(types)
   return (
     <Card
       className="PokemonCard"
@@ -11,7 +12,7 @@ const PokemonCard = ({name,url}) => {
       cover={<PokemonImage src={url} alt={name} />}
       extra={<AiOutlineStar />}
     >
-      <Meta description="fire, magic" />
+      <Meta description={types.map(slot => {return slot.type.name })} />
     </Card>
   )
 }

@@ -5,7 +5,13 @@ const PokemonList = ({pokemons}) => {
   return (
     <div id="PokemonList">
       <section className="PokemonCard-Container">
-        {pokemons.map((pokemon) => {return <PokemonCard name={pokemon.name} url={pokemon.url} />})}
+        {pokemons.map((pokemon) => {
+          return <PokemonCard 
+            key={pokemon.name} 
+            name={pokemon.name} 
+            url={pokemon.sprites.front_default}
+            types={pokemon.types} 
+          />})}
       </section>
     </div>
   )

@@ -1,16 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Searcher } from "../../feature/Searcher"
-import { getPokemon } from '../../api';
-
+import { getPokemon, getPokemonDetails } from '../../api';
+import { setPokemons } from '../../actions/index'
+import { useSelector, useDispatch } from 'react-redux';
+import { allPokemons } from '../../reducers/pokemons';
 
 const HomePage = () => {
 
-    const [pokemons, setPokemons] = useState([]);
+    const pokemons = useSelector(allPokemons);
+    const dispatch = useDispatch();
 
     useEffect(() => {
       const fetchPokemons = async () => {
         const pokemonList = await getPokemon();
-        setPokemons(pokemonList);
+        const pokemonDetails = await Promise.all(
+          pokemonList.map(pokemon => getPokemonDetails(pokemon))
+        );
+        dispatch(setPokemons(pokemonDetails));
       };
       fetchPokemons();
     }, []);
@@ -22,4 +28,4 @@ const HomePage = () => {
     )
 }
 
-export {HomePage}
+export {HomePage};
